@@ -14,7 +14,7 @@ class Twig_Tests_Node_ModuleTest extends Twig_Test_NodeTestCase
     public function testConstructor()
     {
         $body = new Twig_Node_Text('foo', 1);
-        $parent = new Twig_Node_Expression_Constant('layout.twig', 1);
+        $parent = new Twig_Node_Expression_Constant('layout.html', 1);
         $blocks = new Twig_Node();
         $macros = new Twig_Node();
         $traits = new Twig_Node();
@@ -85,7 +85,7 @@ EOF
         $import = new Twig_Node_Import(new Twig_Node_Expression_Constant('foo.twig', 1), new Twig_Node_Expression_AssignName('macro', 1), 2);
 
         $body = new Twig_Node(array($import));
-        $extends = new Twig_Node_Expression_Constant('layout.twig', 1);
+        $extends = new Twig_Node_Expression_Constant('layout.html', 1);
 
         $node = new Twig_Node_Module($body, $extends, $blocks, $macros, $traits, new Twig_Node(array()), $source);
         $tests[] = array($node, <<<EOF
@@ -99,14 +99,14 @@ class __TwigTemplate_%x extends Twig_Template
         parent::__construct(\$env);
 
         // line 1
-        \$this->parent = \$this->loadTemplate("layout.twig", "foo.twig", 1);
+        \$this->parent = \$this->loadTemplate("layout.html", "foo.twig", 1);
         \$this->blocks = array(
         );
     }
 
     protected function doGetParent(array \$context)
     {
-        return "layout.twig";
+        return "layout.html";
     }
 
     protected function doDisplay(array \$context, array \$blocks = array())
