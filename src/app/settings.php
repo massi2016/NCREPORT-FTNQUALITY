@@ -29,7 +29,7 @@ return [
                 'host'     => 'localhost',
                 'dbname'   => 'ereporofficiel',
                 'user'     => 'root',
-                'password' => '',
+                'password' => 'root',
             ]
         ]
     ],
